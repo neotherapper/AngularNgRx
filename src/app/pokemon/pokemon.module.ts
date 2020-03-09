@@ -13,8 +13,10 @@ import { PokemonCollectionPageComponent } from './containers';
 
 
 // NGRX
-import * as fromPokemon from '@angular-ngrx/pokemon/reducers';
+import * as fromPokemon from './reducers';
+import { PokemonEffects } from './effects';
 import { StoreModule } from '@ngrx/store';
+import { EffectsModule } from '@ngrx/effects';
 
 export const COMPONENTS = [
   PokemonDetailComponent,
@@ -44,6 +46,16 @@ export const CONTAINERS = [
      * the existing state.
      */
     StoreModule.forFeature(fromPokemon.pokemonFeatureKey, fromPokemon.reducers),
+
+    /**
+     * Effects.forFeature is used to register effects
+     * from feature modules. Effects can be loaded
+     * eagerly or lazily and will be started immediately.
+     *
+     * All Effects will only be instantiated once regardless of
+     * whether they are registered once or multiple times.
+     */
+    EffectsModule.forFeature([PokemonEffects]),
   ],
   declarations: [COMPONENTS, CONTAINERS],
 })
