@@ -4,6 +4,7 @@ import * as PokemonCollectionApiActions from './pokemon-collection-api.actions';
 import * as PokemonCollectionPageActions from './pokemon-collection-page.action';
 import * as FindPokemonPageActions from './find-pokemon-page.actions';
 import * as SelectedPokemonPageActions from './selected-pokemon-page.actions';
+import * as ViewPokemonPageActions from './view-pokemon-page.actions';
 
 export {
   PokemonApiActions,
@@ -12,4 +13,5 @@ export {
   PokemonCollectionPageActions,
   FindPokemonPageActions,
   SelectedPokemonPageActions,
+  ViewPokemonPageActions,
 };
