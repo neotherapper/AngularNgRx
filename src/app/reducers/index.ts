@@ -7,6 +7,7 @@ import {
   ActionReducerMap
 } from '@ngrx/store';
 import { environment } from '../../environments/environment';
+import { storeFreeze } from 'ngrx-store-freeze';
 import * as fromRouter from '@ngrx/router-store';
 
 const layoutFeatureKey: unique symbol = Symbol(fromLayout.layoutFeatureKey);
@@ -63,8 +64,12 @@ export function logger(reducer: ActionReducer<State>): ActionReducer<State> {
  * that will be composed to form the root meta-reducer.
  */
 export const metaReducers: MetaReducer<State>[] = !environment.production
-  ? [logger]
-  : [];
+         ? [logger]
+         : [];
+
+// export const metaReducers: MetaReducer<State>[] = !environment.production
+//          ? [storeFreeze]
+//          : [];
 
 /**
  * Layout Reducers

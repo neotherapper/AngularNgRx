@@ -1,17 +1,23 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+import { environment } from 'src/environments/environment';
+
 // NGRX STORE
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreRouterConnectingModule } from '@ngrx/router-store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
-import { ROOT_REDUCERS, metaReducers } from '@angular-ngrx/reducers';
+import {
+  ROOT_REDUCERS,
+  metaReducers
+} from "@angular-ngrx/reducers";
 import { RouterEffects } from '@angular-ngrx/core/effects';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+
 
 @NgModule({
   declarations: [AppComponent],
