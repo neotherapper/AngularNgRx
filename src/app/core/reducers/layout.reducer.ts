@@ -1,0 +1,22 @@
+import { createReducer, on } from '@ngrx/store';
+
+import { LayoutActions } from '@angular-ngrx/core/actions';
+
+export const layoutFeatureKey = 'layout';
+
+export interface State {
+  showSidenav: boolean;
+}
+
+const initialState: State = {
+  showSidenav: false
+};
+
+export const reducer = createReducer(
+  initialState,
+  // Even thought the `state` is unused, it helps infer the return type
+  on(LayoutActions.closeSidenav, state => ({ showSidenav: false })),
+  on(LayoutActions.openSidenav, state => ({ showSidenav: true })),
+);
+
+export const selectShowSidenav = (state: State) => state.showSidenav;
