@@ -18,6 +18,7 @@ import { CoreModule } from '@angular-ngrx/core';
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppComponent } from '@angular-ngrx/core/containers';
+import { AuthModule } from './auth';
 
 
 @NgModule({
@@ -25,6 +26,7 @@ import { AppComponent } from '@angular-ngrx/core/containers';
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
+    AuthModule,
 
     /**
      * StoreModule.forRoot is imported once in the root module, accepting a reducer
