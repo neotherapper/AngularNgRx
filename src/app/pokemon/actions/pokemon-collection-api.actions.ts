@@ -6,12 +6,12 @@ import { Pokemon } from '@angular-ngrx/pokemon/models';
  * Add Pokemon to Collection Actions
  */
 export const addPokemonSuccess = createAction(
-  '[Pokemon/Collection/API] Add Book Success',
+  '[Pokemon/Collection/API] Add Pokemon Success',
   props<{ pokemon: Pokemon }>()
 );
 
 export const addPokemonFailure = createAction(
-  '[Pokemon/Collection/API] Add Book Failure',
+  '[Pokemon/Collection/API] Add Pokemon Failure',
   props<{ pokemon: Pokemon }>()
 );
 
@@ -19,12 +19,12 @@ export const addPokemonFailure = createAction(
  * Remove Pokemon from Collection Actions
  */
 export const removePokemonSuccess = createAction(
-  '[Pokemon/Collection/API] Remove Book Success',
+  '[Pokemon/Collection/API] Remove Pokemon Success',
   props<{ pokemon: Pokemon }>()
 );
 
-export const removeBookFailure = createAction(
-  '[Pokemon/Collection/API] Remove Book Failure',
+export const removePokemonFailure = createAction(
+  '[Pokemon/Collection/API] Remove Pokemon Failure',
   props<{ pokemon: Pokemon }>()
 );
 
