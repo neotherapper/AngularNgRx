@@ -165,7 +165,7 @@ export const selectBookCollection = createSelector(
   }
 );
 
-export const isSelectedBookInCollection = createSelector(
+export const isSelectedPokemonInCollection = createSelector(
   selectCollectionBookIds,
   selectSelectedPokemonId,
   (ids, selected) => {
