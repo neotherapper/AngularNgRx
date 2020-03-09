@@ -1,20 +1,28 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
-    "baseUrl": "./",
     "outDir": "./dist/out-tsc",
     "sourceMap": true,
     "declaration": false,
     "downlevelIteration": true,
     "experimentalDecorators": true,
+    "noStrictGenericChecks": true,
     "module": "esnext",
     "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
     "importHelpers": true,
     "target": "es2015",
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "strict": true,
+    "baseUrl": ".",
+    "paths": {
+      "@angular-ngrx/*": [
+        "./src/app/*"
+      ]
+    },
   },
   "angularCompilerOptions": {
     "fullTemplateTypeCheck": true,
