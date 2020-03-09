@@ -4,13 +4,18 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 // Material
 import { MaterialModule } from '@angular-ngrx/material';
-import { PokemonDetailComponent, PokemonSearchComponent } from './components';
+import { PokemonDetailComponent, PokemonSearchComponent, PokemonPreviewComponent, PokemonPreviewListComponent } from './components';
 import { ViewPokemonPageComponent } from './containers/view-pokemon-page.container';
 import { SelectedPokemonPageComponent } from './containers/selected-pokemon-page.container';
 
 // NGRX
 
-export const COMPONENTS = [PokemonDetailComponent, PokemonSearchComponent];
+export const COMPONENTS = [
+  PokemonDetailComponent,
+  PokemonPreviewComponent,
+  PokemonPreviewListComponent,
+  PokemonSearchComponent
+];
 
 export const CONTAINERS = [
   SelectedPokemonPageComponent,

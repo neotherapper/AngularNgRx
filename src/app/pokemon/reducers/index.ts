@@ -150,14 +150,14 @@ export const getCollectionLoading = createSelector(
   selectCollectionState,
   fromCollection.getLoading
 );
-export const selectCollectionBookIds = createSelector(
+export const selectCollectionPokemonIds = createSelector(
   selectCollectionState,
   fromCollection.getIds
 );
 
-export const selectBookCollection = createSelector(
+export const selectPokemonCollection = createSelector(
   selectPokemonEntities,
-  selectCollectionBookIds,
+  selectCollectionPokemonIds,
   (entities, ids) => {
     return ids
       .map(id => entities[id])
