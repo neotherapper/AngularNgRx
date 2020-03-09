@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-layout',
+  selector: 'bc-layout',
   template: `
     <mat-sidenav-container fullscreen>
       <ng-content></ng-content>
@@ -17,7 +17,7 @@ import { Component } from '@angular/core';
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
       }
-    `
-  ]
+    `,
+  ],
 })
 export class LayoutComponent {}

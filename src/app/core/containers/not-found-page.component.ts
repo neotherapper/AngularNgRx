@@ -1,7 +1,7 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
 
 @Component({
-  selector: 'app-not-found-page',
+  selector: 'bc-not-found-page',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <mat-card>
@@ -21,7 +21,7 @@ import { Component, ChangeDetectionStrategy } from '@angular/core';
       :host {
         text-align: center;
       }
-    `
-  ]
+    `,
+  ],
 })
 export class NotFoundPageComponent {}

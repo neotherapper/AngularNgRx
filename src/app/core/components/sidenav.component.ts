@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
-  selector: 'app-sidenav',
+  selector: 'bc-sidenav',
   template: `
     <mat-sidenav
       #sidenav
@@ -20,8 +20,8 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
       mat-sidenav {
         width: 300px;
       }
-    `
-  ]
+    `,
+  ],
 })
 export class SidenavComponent {
   @Input() open = false;
