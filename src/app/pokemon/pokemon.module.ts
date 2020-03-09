@@ -9,6 +9,7 @@ import { MaterialModule } from '@angular-ngrx/material';
 import { PokemonDetailComponent, PokemonSearchComponent, PokemonPreviewComponent, PokemonPreviewListComponent } from './components';
 import { ViewPokemonPageComponent } from './containers/view-pokemon-page.container';
 import { SelectedPokemonPageComponent } from './containers/selected-pokemon-page.container';
+import { PokemonCollectionPageComponent } from './containers';
 
 // NGRX
 
@@ -20,6 +21,7 @@ export const COMPONENTS = [
 ];
 
 export const CONTAINERS = [
+  PokemonCollectionPageComponent,
   SelectedPokemonPageComponent,
   ViewPokemonPageComponent
 ];
