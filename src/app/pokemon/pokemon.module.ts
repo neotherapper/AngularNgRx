@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 
+import { PokemonRoutingModule } from './pokemon-routing.mdule';
+
 // Material
 import { MaterialModule } from '@angular-ngrx/material';
 import { PokemonDetailComponent, PokemonSearchComponent, PokemonPreviewComponent, PokemonPreviewListComponent } from './components';
@@ -24,7 +26,12 @@ export const CONTAINERS = [
 
 
 @NgModule({
-  imports: [CommonModule, ReactiveFormsModule, MaterialModule],
+  imports: [
+    CommonModule,
+    ReactiveFormsModule,
+    MaterialModule,
+    PokemonRoutingModule,
+],
   declarations: [COMPONENTS, CONTAINERS],
 })
 export class PokemonModule {}
