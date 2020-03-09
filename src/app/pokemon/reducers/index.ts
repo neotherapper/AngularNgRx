@@ -166,7 +166,7 @@ export const selectPokemonCollection = createSelector(
 );
 
 export const isSelectedPokemonInCollection = createSelector(
-  selectCollectionBookIds,
+  selectCollectionPokemonIds,
   selectSelectedPokemonId,
   (ids, selected) => {
     return !!selected && ids.indexOf(selected) > -1;
