@@ -1,6 +1,6 @@
 import { createAction, props } from '@ngrx/store';
 
-import { Pokemon } from '@angular-ngrx/books/models';
+import { Pokemon } from '../models';
 
 /**
  * Add Pokemon to Collection Action
