@@ -10,7 +10,6 @@ import { environment } from '../../environments/environment';
 import { storeFreeze } from 'ngrx-store-freeze';
 import * as fromRouter from '@ngrx/router-store';
 
-const layoutFeatureKey: unique symbol = Symbol(fromLayout.layoutFeatureKey);
 
 /**
  * Every reducer module's default export is the reducer function itself. In
@@ -28,7 +27,7 @@ import { InjectionToken } from '@angular/core';
  */
 
 export interface State {
-  [layoutFeatureKey]: fromLayout.State;
+  [fromLayout.layoutFeatureKey]: fromLayout.State;
   router: fromRouter.RouterReducerState<any>;
 }
 
@@ -37,11 +36,13 @@ export interface State {
  * These reducer functions are called with each dispatched action
  * and the current or initial state and return a new immutable state.
  */
-export const ROOT_REDUCERS = new InjectionToken<ActionReducerMap<State, Action>>('Root reducers token', {
+export const ROOT_REDUCERS = new InjectionToken<
+  ActionReducerMap<State, Action>
+>('Root reducers token', {
   factory: () => ({
-    [layoutFeatureKey]: fromLayout.reducer,
-    router: fromRouter.routerReducer
-  })
+    [fromLayout.layoutFeatureKey]: fromLayout.reducer,
+    router: fromRouter.routerReducer,
+  }),
 });
 
 // console.log all actions
@@ -64,8 +65,8 @@ export function logger(reducer: ActionReducer<State>): ActionReducer<State> {
  * that will be composed to form the root meta-reducer.
  */
 export const metaReducers: MetaReducer<State>[] = !environment.production
-         ? [logger]
-         : [];
+? [logger]
+: [];
 
 // export const metaReducers: MetaReducer<State>[] = !environment.production
 //          ? [storeFreeze]
@@ -75,7 +76,7 @@ export const metaReducers: MetaReducer<State>[] = !environment.production
  * Layout Reducers
  */
 export const selectLayoutState = createFeatureSelector<State, fromLayout.State>(
-  layoutFeatureKey
+  fromLayout.layoutFeatureKey
 );
 
 export const selectShowSidenav = createSelector(

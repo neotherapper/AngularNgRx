@@ -1,8 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-import { environment } from 'src/environments/environment';
-
 // NGRX STORE
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
@@ -12,17 +10,20 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import {
   ROOT_REDUCERS,
   metaReducers
-} from "@angular-ngrx/reducers";
+} from '@angular-ngrx/reducers';
 import { RouterEffects } from '@angular-ngrx/core/effects';
 
+import { CoreModule } from '@angular-ngrx/core';
+
 import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AppComponent } from '@angular-ngrx/core/containers';
 
 
 @NgModule({
-  declarations: [AppComponent],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
 
     /**
@@ -39,8 +40,8 @@ import { AppComponent } from './app.component';
         strictActionImmutability: true,
         strictStateSerializability: true,
         strictActionSerializability: true,
-        strictActionWithinNgZone: true
-      }
+        strictActionWithinNgZone: true,
+      },
     }),
 
     /**
@@ -59,7 +60,7 @@ import { AppComponent } from './app.component';
      * See: https://github.com/zalmoxisus/redux-devtools-extension
      */
     StoreDevtoolsModule.instrument({
-      name: 'Angular NgRx App'
+      name: 'Angular NgRx App',
 
       // In a production build you would want to disable the Store Devtools
       // logOnly: environment.production,
@@ -72,9 +73,10 @@ import { AppComponent } from './app.component';
      *
      * See: https://ngrx.io/guide/effects#registering-root-effects
      */
-    EffectsModule.forRoot([RouterEffects])
+    EffectsModule.forRoot([RouterEffects]),
+    CoreModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule {}

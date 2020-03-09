@@ -1,18 +1,28 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { select, Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 
-import { select, Store } from '@ngrx/store';
-import { LayoutActions } from './core/actions';
 import * as fromRoot from '@angular-ngrx/reducers';
-
+import { LayoutActions } from '@angular-ngrx/core/actions';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  selector: 'bc-main',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: `
+    <bc-layout>
+      <bc-sidenav [open]="showSidenav$ | async" (closeMenu)="closeSidenav()">
+        <bc-nav-item (navigate)="closeSidenav()">
+          Sign In
+        </bc-nav-item>
+      </bc-sidenav>
+      <bc-toolbar (openMenu)="openSidenav()">
+        Pokemon Collection
+      </bc-toolbar>
+      <router-outlet></router-outlet>
+    </bc-layout>
+  `,
 })
 export class AppComponent {
-  title = 'angular-ngrx';
   showSidenav$: Observable<boolean>;
 
   constructor(private store: Store<fromRoot.State>) {
@@ -31,5 +41,9 @@ export class AppComponent {
      * application.
      */
     this.store.dispatch(LayoutActions.closeSidenav());
+  }
+
+  openSidenav() {
+    this.store.dispatch(LayoutActions.openSidenav());
   }
 }
