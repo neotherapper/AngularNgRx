@@ -1,21 +1,32 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
-import { LoginFormComponent } from './components';
-import { MaterialModule } from '@angular-ngrx/material';
-import { AuthRoutingModule } from '@angular-ngrx/auth/auth-routing.module';
 
+// NGRX STORE
+import { StoreModule } from '@ngrx/store';
+import { EffectsModule } from '@ngrx/effects';
+
+import { AuthEffects } from './effects';
+import * as fromAuth from './reducers';
+
+// COMPONENTS
+import { LoginFormComponent, LogoutConfirmationDialogComponent } from './components';
+import { MaterialModule } from '@angular-ngrx/material';
+import { AuthRoutingModule } from './auth-routing.module';
 
 export const COMPONENTS = [
-  LoginFormComponent
+  LoginFormComponent,
+  LogoutConfirmationDialogComponent
 ];
 
 @NgModule({
   imports: [
     CommonModule,
+    ReactiveFormsModule,
     MaterialModule,
     AuthRoutingModule,
-    ReactiveFormsModule,
+    StoreModule.forFeature(fromAuth.authFeatureKey, fromAuth.reducers),
+    EffectsModule.forFeature([AuthEffects]),
   ],
   declarations: COMPONENTS,
 })
