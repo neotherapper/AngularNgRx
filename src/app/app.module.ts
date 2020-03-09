@@ -1,5 +1,7 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClientModule } from '@angular/common/http';
 
 // NGRX STORE
 import { StoreModule } from '@ngrx/store';
@@ -11,22 +13,21 @@ import {
   ROOT_REDUCERS,
   metaReducers
 } from '@angular-ngrx/reducers';
-import { RouterEffects } from '@angular-ngrx/core/effects';
+import { RouterEffects, UserEffects } from '@angular-ngrx/core/effects';
 
 import { CoreModule } from '@angular-ngrx/core';
 
 import { AppRoutingModule } from './app-routing.module';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppComponent } from '@angular-ngrx/core/containers';
 import { AuthModule } from './auth';
-
 
 @NgModule({
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    AppRoutingModule,
+    HttpClientModule,
     AuthModule,
+    AppRoutingModule,
 
     /**
      * StoreModule.forRoot is imported once in the root module, accepting a reducer
@@ -75,7 +76,7 @@ import { AuthModule } from './auth';
      *
      * See: https://ngrx.io/guide/effects#registering-root-effects
      */
-    EffectsModule.forRoot([RouterEffects]),
+    EffectsModule.forRoot([RouterEffects, UserEffects]),
     CoreModule,
   ],
   providers: [],
