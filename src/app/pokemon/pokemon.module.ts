@@ -11,7 +11,10 @@ import { ViewPokemonPageComponent } from './containers/view-pokemon-page.contain
 import { SelectedPokemonPageComponent } from './containers/selected-pokemon-page.container';
 import { PokemonCollectionPageComponent } from './containers';
 
+
 // NGRX
+import * as fromPokemon from '@angular-ngrx/pokemon/reducers';
+import { StoreModule } from '@ngrx/store';
 
 export const COMPONENTS = [
   PokemonDetailComponent,
@@ -33,7 +36,15 @@ export const CONTAINERS = [
     ReactiveFormsModule,
     MaterialModule,
     PokemonRoutingModule,
-],
+
+    /**
+     * StoreModule.forFeature is used for composing state
+     * from feature modules. These modules can be loaded
+     * eagerly or lazily and will be dynamically added to
+     * the existing state.
+     */
+    StoreModule.forFeature(fromPokemon.pokemonFeatureKey, fromPokemon.reducers),
+  ],
   declarations: [COMPONENTS, CONTAINERS],
 })
 export class PokemonModule {}
