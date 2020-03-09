@@ -1,1 +1,1 @@
-export * from '@angular-ngrx/material/material.module';
+export * from './material.module';
