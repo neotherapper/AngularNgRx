@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 import { LoginFormComponent } from './components';
 import { MaterialModule } from '@angular-ngrx/material';
+import { AuthRoutingModule } from '@angular-ngrx/auth/auth-routing.module';
 
 
 export const COMPONENTS = [
@@ -13,6 +14,7 @@ export const COMPONENTS = [
   imports: [
     CommonModule,
     MaterialModule,
+    AuthRoutingModule,
     ReactiveFormsModule,
   ],
   declarations: COMPONENTS,
