@@ -17,6 +17,7 @@ import { RouterEffects } from '@angular-ngrx/core/effects';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 @NgModule({
@@ -72,7 +73,9 @@ import { AppComponent } from './app.component';
      *
      * See: https://ngrx.io/guide/effects#registering-root-effects
      */
-    EffectsModule.forRoot([RouterEffects])
+    EffectsModule.forRoot([RouterEffects]),
+
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
