@@ -8,7 +8,7 @@ import { PokemonDetailComponent, PokemonSearchComponent } from './components';
 import { ViewPokemonPageComponent } from './containers/view-pokemon-page.container';
 import { SelectedPokemonPageComponent } from './containers/selected-pokemon-page.container';
 
-//NGRX
+// NGRX
 
 export const COMPONENTS = [PokemonDetailComponent, PokemonSearchComponent];
 
