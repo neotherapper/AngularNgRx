@@ -18,7 +18,7 @@ import { LayoutActions } from '@angular-ngrx/core/actions';
           *ngIf="loggedIn$ | async"
           routerLink="/"
           icon="book"
-          hint="View your book collection"
+          hint="View your Pokemon collection"
         >
           My Collection
         </bc-nav-item>
@@ -29,7 +29,7 @@ import { LayoutActions } from '@angular-ngrx/core/actions';
           icon="search"
           hint="Find your next pokemon!"
         >
-          Browse Books
+          Browse Pokemons
         </bc-nav-item>
         <bc-nav-item (navigate)="closeSidenav()" *ngIf="!(loggedIn$ | async)">
           Sign In
@@ -39,7 +39,7 @@ import { LayoutActions } from '@angular-ngrx/core/actions';
         </bc-nav-item>
       </bc-sidenav>
       <bc-toolbar (openMenu)="openSidenav()">
-        Book Collection
+        Pokemons
       </bc-toolbar>
       <router-outlet></router-outlet>
     </bc-layout>

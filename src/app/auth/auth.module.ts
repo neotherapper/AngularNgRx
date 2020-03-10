@@ -11,10 +11,14 @@ import * as fromAuth from './reducers';
 
 // COMPONENTS
 import { LoginFormComponent, LogoutConfirmationDialogComponent } from './components';
+import { LoginPageComponent } from './containers';
+
 import { MaterialModule } from '@angular-ngrx/material';
 import { AuthRoutingModule } from './auth-routing.module';
 
+
 export const COMPONENTS = [
+  LoginPageComponent,
   LoginFormComponent,
   LogoutConfirmationDialogComponent
 ];
