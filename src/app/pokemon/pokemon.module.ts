@@ -14,7 +14,7 @@ import { PokemonCollectionPageComponent, FindPokemonPageComponent } from './cont
 
 // NGRX
 import * as fromPokemon from './reducers';
-import { PokemonEffects } from './effects';
+import { PokemonEffects, PokemonCollectionEffects } from './effects';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 
@@ -56,7 +56,7 @@ export const CONTAINERS = [
      * All Effects will only be instantiated once regardless of
      * whether they are registered once or multiple times.
      */
-    EffectsModule.forFeature([PokemonEffects]),
+    EffectsModule.forFeature([PokemonEffects, PokemonCollectionEffects]),
   ],
   declarations: [COMPONENTS, CONTAINERS],
 })
