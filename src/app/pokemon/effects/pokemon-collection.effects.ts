@@ -55,6 +55,20 @@ export class PokemonCollectionEffects {
     );
   });
 
+  removePokemonFromCollection$ = createEffect(() => {
+    return this.actions$.pipe(
+        ofType(SelectedPokemonPageActions.removePokemon),
+        mergeMap( ({pokemon}) =>
+          this.pokemonStorageService.removeFromCollection([pokemon.id.toString()]).pipe(
+            map(() => PokemonCollectionApiActions.removePokemonSuccess({pokemon})),
+            catchError(err =>
+              of(PokemonCollectionApiActions.addPokemonFailure({pokemon}))
+            )
+          )
+        )
+      );
+  });
+
   constructor(
     private actions$: Actions,
     private pokemonStorageService: PokemonStorageService
