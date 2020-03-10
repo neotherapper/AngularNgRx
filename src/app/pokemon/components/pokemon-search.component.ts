@@ -1,4 +1,6 @@
 import { Component, Output, Input, EventEmitter } from '@angular/core';
+import { debounce, debounceTime } from 'rxjs/operators';
+import { Subject } from 'rxjs';
 
 @Component({
   selector: 'bc-pokemon-search',
@@ -11,7 +13,7 @@ import { Component, Output, Input, EventEmitter } from '@angular/core';
             matInput
             placeholder="Search for a pokemon"
             [value]="query"
-            (keyup)="search.emit($event.target.value)"
+            (keyup)="pokemonSearch($event.target.value)"
           />
         </mat-form-field>
         <mat-spinner
@@ -54,8 +56,19 @@ import { Component, Output, Input, EventEmitter } from '@angular/core';
   ],
 })
 export class PokemonSearchComponent {
+  debouncer: Subject<string> = new Subject<string>();
   @Input() query = '';
   @Input() searching = false;
   @Input() error = '';
   @Output() search = new EventEmitter<string>();
+
+  constructor() {
+    this.debouncer
+      .pipe(debounceTime(1000))
+      .subscribe(value => this.search.emit(value));
+  }
+
+  pokemonSearch(pokemonQuery: string) {
+    this.debouncer.next(pokemonQuery);
+  }
 }
