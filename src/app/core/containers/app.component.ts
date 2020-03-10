@@ -39,7 +39,7 @@ import { LayoutActions } from '@angular-ngrx/core/actions';
         </bc-nav-item>
       </bc-sidenav>
       <bc-toolbar (openMenu)="openSidenav()">
-        Pokemon Collection
+        Pokemons
       </bc-toolbar>
       <router-outlet></router-outlet>
     </bc-layout>

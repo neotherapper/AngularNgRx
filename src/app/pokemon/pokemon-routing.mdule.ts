@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import {
-  ViewPokemonPageComponent, FindPokemonPageComponent,
+  ViewPokemonPageComponent, FindPokemonPageComponent, PokemonCollectionPageComponent,
 } from './containers';
 
 export const routes: Routes = [
@@ -15,7 +15,12 @@ export const routes: Routes = [
     path: ':id',
     component: ViewPokemonPageComponent,
     data: { title: 'Pokemon details' },
-  }
+  },
+  {
+    path: '',
+    component: PokemonCollectionPageComponent,
+    data: { title: 'Pokemon Collection' },
+  },
 ];
 
 @NgModule({
