@@ -80,11 +80,15 @@ export class PokemonPreviewComponent {
   }
 
   get title() {
-    return this.pokemon.name;
+    if (this.pokemon && this.pokemon.name) {
+      return this.pokemon.name;
+    }
   }
 
   get subtitle() {
-    return this.pokemon.species.name;
+    if (this.pokemon && this.pokemon.species && this.pokemon.species.name) {
+      return this.pokemon.species.name;
+    }
   }
 
   get height() {
@@ -92,7 +96,11 @@ export class PokemonPreviewComponent {
   }
 
   get thumbnail(): string | boolean {
-    if (this.pokemon.sprites.front_default) {
+    if (
+      this.pokemon &&
+      this.pokemon.sprites &&
+      this.pokemon.sprites.front_default
+    ) {
       return this.pokemon.sprites.front_default.replace('http:', '');
     }
 
