@@ -8,11 +8,24 @@ import { Pokemon } from '@angular-ngrx/pokemon/models';
     <mat-card *ngIf="pokemon">
       <mat-card-title-group>
         <mat-card-title>{{ title }}</mat-card-title>
-        <mat-card-subtitle *ngIf="subtitle">{{ subtitle }}</mat-card-subtitle>
+        <mat-card-subtitle *ngIf="baseExperience">
+          Base Experience: {{ baseExperience }}
+        </mat-card-subtitle>
         <img mat-card-sm-image *ngIf="thumbnail" [src]="thumbnail" />
       </mat-card-title-group>
       <mat-card-content>
-        <p [innerHtml]="height"></p>
+        <mat-list>
+          <mat-label>Moves</mat-label>
+          <mat-list-item *ngFor="let move of moves | slice: 0:3">
+            {{ move.move.name }}
+          </mat-list-item>
+        </mat-list>
+        <mat-list>
+          <mat-label>Type</mat-label>
+          <mat-list-item *ngFor="let type of types | slice: 0:3">
+            {{ type.type.name }}
+          </mat-list-item>
+        </mat-list>
       </mat-card-content>
       <mat-card-actions align="start">
         <button
@@ -90,8 +103,16 @@ export class PokemonDetailComponent {
     return this.pokemon.name;
   }
 
-  get subtitle() {
-    return this.pokemon.species.name;
+  get types() {
+    return this.pokemon.types;
+  }
+
+  get moves() {
+    return this.pokemon.moves;
+  }
+
+  get baseExperience() {
+    return this.pokemon.base_experience;
   }
 
   get height() {
