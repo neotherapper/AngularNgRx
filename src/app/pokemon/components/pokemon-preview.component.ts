@@ -80,15 +80,11 @@ export class PokemonPreviewComponent {
   }
 
   get title() {
-    if (this.pokemon && this.pokemon.name) {
-      return this.pokemon.name;
-    }
+    return this.pokemon.name;
   }
 
   get subtitle() {
-    if (this.pokemon && this.pokemon.species && this.pokemon.species.name) {
-      return this.pokemon.species.name;
-    }
+    return this.pokemon.species.name;
   }
 
   get height() {
