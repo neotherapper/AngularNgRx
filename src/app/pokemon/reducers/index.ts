@@ -130,10 +130,10 @@ export const selectSearchError = createSelector(
 export const selectSearchResults = createSelector(
   selectPokemonEntities,
   selectSearchPokemonIds,
-  (pokemon, searchIds) => {
+  (pokemons, searchIds) => {
     return searchIds
-      .map(id => pokemon[id])
-      .filter((poke): poke is Pokemon => poke != null);
+      .map(id => pokemons[id])
+      .filter((pokemon): pokemon is Pokemon => pokemon != null);
   }
 );
 
@@ -161,7 +161,7 @@ export const selectPokemonCollection = createSelector(
   (entities, ids) => {
     return ids
       .map(id => entities[id])
-      .filter((poke): poke is Pokemon => poke != null);
+      .filter((pokemon): pokemon is Pokemon => pokemon != null);
   }
 );
 

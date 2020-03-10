@@ -14,7 +14,7 @@ import * as fromPokemon from '../reducers';
     <mat-card>
       <mat-card-title>My Collection</mat-card-title>
     </mat-card>
-    <bc-pokemon-preview-list [pokemon]="pokemon$ | async"></bc-pokemon-preview-list>
+    <bc-pokemon-preview-list [pokemons]="pokemons$ | async"></bc-pokemon-preview-list>
   `,
   /**
    * Container components are permitted to have just enough styles
@@ -32,10 +32,10 @@ import * as fromPokemon from '../reducers';
   ],
 })
 export class PokemonCollectionPageComponent implements OnInit {
-  pokemon$: Observable<Pokemon[]>;
+  pokemons$: Observable<Pokemon[]>;
 
   constructor(private store: Store<fromPokemon.State>) {
-    this.pokemon$ = store.pipe(select(fromPokemon.selectPokemonCollection));
+    this.pokemons$ = store.pipe(select(fromPokemon.selectPokemonCollection));
   }
 
   ngOnInit() {
