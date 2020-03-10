@@ -26,3 +26,8 @@ export interface Pokemon {
   types: Type[];
   weight: number;
 }
+
+export interface PokemonShort {
+  name: string;
+  url: string;
+}

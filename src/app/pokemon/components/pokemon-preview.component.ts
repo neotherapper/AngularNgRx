@@ -76,7 +76,7 @@ export class PokemonPreviewComponent {
   @Input() pokemon!: Pokemon;
 
   get id() {
-    return this.pokemon.id.toString();
+    return this.pokemon.id;
   }
 
   get title() {

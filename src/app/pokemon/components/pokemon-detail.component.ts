@@ -83,7 +83,7 @@ export class PokemonDetailComponent {
    * Tip: Utilize getters to keep templates clean
    */
   get id() {
-    return this.pokemon.id.toString();
+    return this.pokemon.id;
   }
 
   get title() {

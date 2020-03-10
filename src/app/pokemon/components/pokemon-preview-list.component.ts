@@ -7,7 +7,7 @@ import { Pokemon } from '../models/pokemon';
   template: `
     <bc-pokemon-preview
       *ngFor="let poke of pokemon"
-      [pokemon]="pokemon"
+      [pokemon]="poke"
     ></bc-pokemon-preview>
   `,
   styles: [
