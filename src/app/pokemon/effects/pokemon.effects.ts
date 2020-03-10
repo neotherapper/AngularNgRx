@@ -48,7 +48,7 @@ export class PokemonEffects {
 
           return this.pokemonApiService.searchPokemon(query).pipe(
             takeUntil(nextSearch$),
-            map((pokemon: Pokemon[]) => PokemonApiActions.searchSuccess({ pokemon })),
+            map((pokemons: Pokemon[]) => PokemonApiActions.searchSuccess({ pokemons })),
             catchError(err =>
               of(PokemonApiActions.searchFailure({ errorMsg: err.message }))
             )

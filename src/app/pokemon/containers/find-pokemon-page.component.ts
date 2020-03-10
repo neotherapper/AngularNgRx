@@ -19,12 +19,12 @@ import * as fromPokemon from '../reducers';
       (search)="search($event)"
     >
     </bc-pokemon-search>
-    <bc-pokemon-preview-list [pokemon]="pokemon$ | async"> </bc-pokemon-preview-list>
+    <bc-pokemon-preview-list [pokemons]="pokemons$ | async"> </bc-pokemon-preview-list>
   `,
 })
 export class FindPokemonPageComponent {
   searchQuery$: Observable<string>;
-  pokemon$: Observable<Pokemon[]>;
+  pokemons$: Observable<Pokemon[]>;
   loading$: Observable<boolean>;
   error$: Observable<string>;
 
@@ -33,7 +33,7 @@ export class FindPokemonPageComponent {
       select(fromPokemon.selectSearchQuery),
       take(1)
     );
-    this.pokemon$ = store.pipe(select(fromPokemon.selectSearchResults));
+    this.pokemons$ = store.pipe(select(fromPokemon.selectSearchResults));
     this.loading$ = store.pipe(select(fromPokemon.selectSearchLoading));
     this.error$ = store.pipe(select(fromPokemon.selectSearchError));
   }

@@ -100,8 +100,8 @@ export class PokemonDetailComponent {
 
   get thumbnail() {
     return (
-      this.pokemon.sprites.back_default &&
-      this.pokemon.sprites.back_default.replace('http:', '')
+      this.pokemon.sprites.front_default &&
+      this.pokemon.sprites.front_default.replace('http:', '')
     );
   }
 }

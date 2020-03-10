@@ -31,7 +31,7 @@ export interface State extends EntityState<Pokemon> {
  * function if the records are to be sorted.
  */
 export const adapter: EntityAdapter<Pokemon> = createEntityAdapter<Pokemon>({
-  selectId: (book: Pokemon) => book.id,
+  selectId: (pokemon: Pokemon) => pokemon.id,
   sortComparer: false,
 });
 
@@ -55,8 +55,8 @@ export const reducer = createReducer(
           */
          on(
            PokemonApiActions.searchSuccess,
-           PokemonCollectionApiActions.loadPokemonSuccess,
-           (state, { pokemon }) => adapter.addMany(pokemon, state)
+           PokemonCollectionApiActions.loadPokemonsSuccess,
+           (state, { pokemons }) => adapter.addMany(pokemons, state)
          ),
          /**
           * The addOne function provided by the created adapter
@@ -70,7 +70,7 @@ export const reducer = createReducer(
          ),
          on(ViewPokemonPageActions.selectPokemon, (state, { id }) => ({
            ...state,
-           selectedBookId: id,
+           selectedPokemonId: id,
          }))
        );
 

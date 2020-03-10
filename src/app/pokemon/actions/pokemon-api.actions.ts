@@ -4,7 +4,7 @@ import { Pokemon } from '@angular-ngrx/pokemon/models';
 
 export const searchSuccess = createAction(
   '[Pokemon/API] Search Success',
-  props<{ pokemon: Pokemon[] }>()
+  props<{ pokemons: Pokemon[] }>()
 );
 
 export const searchFailure = createAction(

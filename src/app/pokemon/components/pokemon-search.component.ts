@@ -4,7 +4,7 @@ import { Component, Output, Input, EventEmitter } from '@angular/core';
   selector: 'bc-pokemon-search',
   template: `
     <mat-card>
-      <mat-card-title>Find a Book</mat-card-title>
+      <mat-card-title>Find a Pokemon</mat-card-title>
       <mat-card-content>
         <mat-form-field>
           <input

@@ -20,7 +20,7 @@ export class RouterEffects {
           return route;
         }),
         mergeMap(route => route.data),
-        map(data => `Book Collection - ${data.title}`),
+        map(data => `Pokemon Collection - ${data.title}`),
         tap(title => this.titleService.setTitle(title))
       ),
     {

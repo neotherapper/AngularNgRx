@@ -34,7 +34,7 @@ export function reducers(state: PokemonState | undefined, action: Action) {
 /**
  * A selector function is a map function factory. We pass it parameters and it
  * returns a function that maps from the larger state tree into a smaller
- * piece of state. This selector simply selects the `books` state.
+ * piece of state. This selector simply selects the `pokemon` state.
  *
  * Selectors are used with the `select` operator.
  *

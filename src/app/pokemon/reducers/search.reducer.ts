@@ -37,8 +37,8 @@ export const reducer = createReducer(
           query,
         };
   }),
-  on(PokemonApiActions.searchSuccess, (state, { pokemon }) => ({
-    ids: pokemon.map(pok => pok.id.toString()),
+  on(PokemonApiActions.searchSuccess, (state, { pokemons }) => ({
+    ids: pokemons.map(pokemon => pokemon.id.toString()),
     loading: false,
     error: '',
     query: state.query,

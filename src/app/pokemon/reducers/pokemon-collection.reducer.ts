@@ -26,11 +26,11 @@ export const reducer = createReducer(
            loading: true,
          })),
          on(
-           PokemonCollectionApiActions.loadPokemonSuccess,
-           (state, { pokemon }) => ({
+           PokemonCollectionApiActions.loadPokemonsSuccess,
+           (state, { pokemons }) => ({
              loaded: true,
              loading: false,
-             ids: pokemon.map(pok => pok.id.toString()),
+             ids: pokemons.map(pokemon => pokemon.id.toString()),
            })
          ),
          // Supports handing multiple types of actions

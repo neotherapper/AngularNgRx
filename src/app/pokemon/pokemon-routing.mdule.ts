@@ -9,7 +9,7 @@ export const routes: Routes = [
   {
     path: 'find',
     component: FindPokemonPageComponent,
-    data: { title: 'Find book' },
+    data: { title: 'Find Pokemon' },
   },
   {
     path: ':id',

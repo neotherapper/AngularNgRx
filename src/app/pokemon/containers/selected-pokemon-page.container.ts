@@ -9,7 +9,7 @@ import { Pokemon } from '@angular-ngrx/pokemon/models';
 import * as fromPokemon from '@angular-ngrx/pokemon/reducers';
 
 @Component({
-  selector: 'bc-selected-book-page',
+  selector: 'bc-selected-pokemon-page',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <bc-pokemon-detail

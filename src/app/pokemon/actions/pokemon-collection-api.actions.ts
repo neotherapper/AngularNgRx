@@ -31,12 +31,12 @@ export const removePokemonFailure = createAction(
 /**
  * Load Collection Actions
  */
-export const loadPokemonSuccess = createAction(
+export const loadPokemonsSuccess = createAction(
   '[Pokemon/Collection/API] Load Pokemon Success',
-  props<{ pokemon: Pokemon[] }>()
+  props<{ pokemons: Pokemon[] }>()
 );
 
-export const loadPokemonFailure = createAction(
+export const loadPokemonsFailure = createAction(
   '[Pokemon/Collection/API] Load Pokemon Failure',
   props<{ error: any }>()
 );

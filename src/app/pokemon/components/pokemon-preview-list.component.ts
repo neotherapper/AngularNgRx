@@ -6,8 +6,8 @@ import { Pokemon } from '../models/pokemon';
   selector: 'bc-pokemon-preview-list',
   template: `
     <bc-pokemon-preview
-      *ngFor="let poke of pokemon"
-      [pokemon]="poke"
+      *ngFor="let pokemon of pokemons"
+      [pokemon]="pokemon"
     ></bc-pokemon-preview>
   `,
   styles: [
@@ -21,5 +21,5 @@ import { Pokemon } from '../models/pokemon';
   ],
 })
 export class PokemonPreviewListComponent {
-  @Input() pokemon!: Pokemon[];
+  @Input() pokemons!: Pokemon[];
 }
